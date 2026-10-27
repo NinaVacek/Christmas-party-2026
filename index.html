@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christmas Party 2026 — Medieval &amp; Middle-earth</title>
+<meta name="description" content="Join us for our company Christmas Party 2026 — a medieval feast, live show and Middle-earth inspired evening at Krčma U Krále Brabantského, Prague.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --parchment:#f2e8d5;
+    --parchment-2:#e9dabd;
+    --cream:#f8f2e4;
+    --ink:#2a1c12;
+    --wood-1:#1b120c;
+    --wood-2:#2b1c12;
+    --wood-3:#3a2717;
+    --brown:#6b4226;
+    --burgundy:#6e1f2b;
+    --burgundy-light:#8a2e3b;
+    --forest:#2f4a3c;
+    --forest-light:#3d5f4d;
+    --gold:#c9a13b;
+    --gold-light:#e3c268;
+    --shadow:0 10px 30px rgba(10,6,3,0.35);
+    --radius:14px;
+    --maxw:1180px;
+    --speed:.6s;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'EB Garamond', Georgia, 'Times New Roman', serif;
+    background:
+      radial-gradient(ellipse 70% 30% at 50% 0%, rgba(201,161,59,0.07), transparent 70%),
+      var(--wood-1);
+    color:var(--parchment-2);
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Cinzel', Georgia, serif;
+    margin:0 0 .5em;
+    line-height:1.25;
+    letter-spacing:.01em;
+  }
+  p{margin:0 0 1em;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  ul{margin:0;padding:0;list-style:none;}
+
+  /* subtle parchment grain overlay */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:2000;
+    opacity:.35;
+    mix-blend-mode:multiply;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.15  0 0 0 0 0.11  0 0 0 0 0.07  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size:200px 200px;
+  }
+
+  .visually-hidden{
+    position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+  }
+  .skip-link{
+    position:absolute;left:-999px;top:0;background:var(--gold);color:var(--ink);
+    padding:.6em 1em;z-index:3000;border-radius:0 0 8px 0;
+  }
+  .skip-link:focus{left:0;}
+
+  /* ---------- ornamental divider ---------- */
+  .divider{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    margin:1.6em auto 2em;max-width:280px;color:var(--gold);
+  }
+  .divider.divider-lg{margin-top:3.2em;}
+  .divider.divider-plain{max-width:160px;}
+  .divider.divider-plain svg,.divider.divider-plain .skull-accent{display:none;}
+  .divider svg{width:22px;height:22px;flex-shrink:0;}
+  .divider .skull-accent{width:28px;height:28px;color:var(--burgundy);}
+  .divider .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,currentColor,transparent);}
+
+  /* ---------- header / nav ---------- */
+  .site-header{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px clamp(18px,4vw,48px);
+    background:transparent;
+    transition:background var(--speed) ease, padding var(--speed) ease, box-shadow var(--speed) ease;
+  }
+  .site-header.scrolled{
+    background:rgba(23,15,9,0.92);
+    padding:10px clamp(18px,4vw,48px);
+    box-shadow:0 4px 18px rgba(0,0,0,.35);
+    backdrop-filter:blur(4px);
+  }
+  .brand{display:flex;align-items:center;text-decoration:none;}
+  .brand-logo{height:32px;width:auto;display:block;}
+  nav.main-nav{display:flex;align-items:center;gap:30px;}
+  nav.main-nav a{
+    color:var(--cream);text-decoration:none;font-size:.92rem;
+    letter-spacing:.04em;text-transform:uppercase;font-family:'Cinzel',serif;font-weight:500;
+    position:relative;padding:4px 0;
+  }
+  nav.main-nav a::after{
+    content:"";position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--gold-light);
+    transition:width .3s ease;
+  }
+  nav.main-nav a:hover::after,nav.main-nav a:focus::after{width:100%;}
+  .nav-toggle{
+    display:none;background:none;border:1px solid var(--gold-light);color:var(--cream);
+    width:42px;height:42px;border-radius:8px;cursor:pointer;
+    align-items:center;justify-content:center;
+  }
+  .nav-toggle svg{width:20px;height:20px;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;
+    text-align:center;overflow:hidden;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(201,161,59,0.14), transparent 45%),
+      linear-gradient(180deg, rgba(20,13,8,.6) 0%, rgba(20,13,8,.68) 55%, rgba(15,9,5,.88) 100%),
+      url("assets/candlelit-staircase.jpg");
+    background-size:cover, cover, cover;
+    background-position:center, center, center 30%;
+    padding:140px 20px 80px;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    box-shadow:inset 0 0 160px 40px rgba(0,0,0,.65);
+    pointer-events:none;
+  }
+  .hero-content{position:relative;z-index:2;max-width:760px;}
+  .kicker{
+    color:var(--gold-light);text-transform:uppercase;letter-spacing:.3em;font-size:.78rem;
+    font-family:'Cinzel',serif;margin-bottom:1.1em;
+  }
+  .hero h1{
+    color:var(--cream);font-size:clamp(2.2rem,5.5vw,4.1rem);text-shadow:0 4px 24px rgba(0,0,0,.5);
+  }
+  .hero-sub{color:var(--parchment-2);font-size:1.2rem;max-width:540px;margin:0 auto 0.4em;}
+  .event-name{
+    color:var(--gold-light);font-family:'Cinzel',serif;font-size:clamp(1.15rem,2vw,1.5rem);letter-spacing:.06em;
+    text-transform:uppercase;margin-bottom:2em;font-weight:600;
+  }
+  .ribbon-banner{
+    position:relative;display:inline-block;max-width:92%;
+    background:var(--parchment-2);
+    border-top:3px solid var(--brown);border-bottom:3px solid var(--brown);
+    padding:18px 26px;margin:0 auto 1.6em;
+    filter:drop-shadow(0 8px 14px rgba(0,0,0,.45));
+  }
+  .ribbon-banner::before,.ribbon-banner::after{
+    content:"";position:absolute;top:0;height:100%;width:32px;
+    background:var(--parchment-2);
+    border-top:3px solid var(--brown);border-bottom:3px solid var(--brown);
+    box-sizing:border-box;
+  }
+  .ribbon-banner::before{left:-32px;clip-path:polygon(0% 0%,100% 0%,100% 100%,0% 100%,42% 50%);}
+  .ribbon-banner::after{right:-32px;clip-path:polygon(0% 0%,100% 0%,58% 50%,100% 100%,0% 100%);}
+  .ribbon-banner .event-name{
+    position:relative;z-index:1;margin:0;color:var(--burgundy);
+  }
+  @media (max-width:480px){
+    .ribbon-banner{padding:14px 16px;}
+    .ribbon-banner::before,.ribbon-banner::after{width:20px;}
+    .ribbon-banner::before{left:-20px;}
+    .ribbon-banner::after{right:-20px;}
+  }
+
+  .info-card{
+    position:relative;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    background:rgba(248,242,228,0.06);
+    border:1px solid rgba(227,194,104,0.35);
+    border-radius:var(--radius);
+    padding:22px 10px;margin:0 auto 2.4em;max-width:640px;
+    backdrop-filter:blur(2px);
+  }
+  .info-item{
+    display:flex;flex-direction:column;align-items:center;gap:8px;padding:8px 10px;
+    border-right:1px solid rgba(227,194,104,0.25);
+  }
+  .info-item:last-child{border-right:none;}
+  .info-item svg{width:26px;height:26px;color:var(--gold-light);}
+  .info-label{
+    font-family:'Cinzel',serif;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--gold-light);
+  }
+  .info-value{color:var(--cream);font-size:.95rem;line-height:1.35;}
+
+  .countdown{
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(248,242,228,0.06);
+    border:1px solid rgba(227,194,104,0.35);
+    border-radius:var(--radius);
+    padding:16px 6px;margin:0 auto 2.4em;max-width:460px;
+    backdrop-filter:blur(2px);
+  }
+  .countdown-item{
+    display:flex;flex-direction:column;align-items:center;gap:4px;
+    padding:4px 12px;border-right:1px solid rgba(227,194,104,0.25);
+    flex:1;
+  }
+  .countdown-item:last-child{border-right:none;}
+  .countdown-num{
+    font-family:'Cinzel',serif;font-weight:700;font-size:clamp(1.3rem,3vw,1.9rem);
+    color:var(--gold-light);line-height:1;font-variant-numeric:tabular-nums;
+  }
+  .countdown-label{
+    font-family:'Cinzel',serif;font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--parchment-2);
+  }
+  .countdown-live{
+    color:var(--gold-light);font-family:'Cinzel',serif;font-size:1rem;margin:0;padding:6px 10px;
+  }
+  @media (max-width:480px){
+    .countdown-item{padding:4px 6px;}
+    .countdown-num{font-size:1.15rem;}
+  }
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Cinzel',serif;font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;
+    text-decoration:none;padding:16px 34px;border-radius:999px;font-weight:600;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:linear-gradient(180deg,var(--gold-light),var(--gold));
+    color:var(--wood-1);box-shadow:0 8px 24px rgba(201,161,59,.35);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(201,161,59,.45);}
+  .btn-secondary{
+    background:transparent;border-color:var(--gold);color:var(--gold-light);
+  }
+  .btn-secondary:hover{background:var(--gold);color:var(--wood-1);}
+
+  .scroll-cue{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    color:var(--gold-light);opacity:.75;z-index:2;
+  }
+  .scroll-cue svg{width:22px;height:22px;animation:bob 2.2s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+
+  /* ---------- sections ---------- */
+  .section{padding:72px 20px;position:relative;}
+  .section.alt{background:var(--wood-2);}
+  .section-inner{max-width:var(--maxw);margin:0 auto;}
+  .eyebrow{
+    text-align:center;color:var(--gold);text-transform:uppercase;letter-spacing:.28em;
+    font-size:.78rem;font-family:'Cinzel',serif;margin-bottom:.8em;
+  }
+  .section h2{text-align:center;font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--cream);}
+  .subhead{
+    text-align:center;color:var(--gold-light);font-size:1.05rem;font-weight:500;
+    text-transform:uppercase;letter-spacing:.1em;margin-bottom:1em;
+  }
+  .lede{max-width:640px;margin:0 auto 1.2em;text-align:center;font-size:1.15rem;color:var(--parchment-2);}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+
+  /* ---------- experience row ---------- */
+  .exp-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:980px;margin:2.4em auto 2em;
+  }
+  .exp-box{
+    background:transparent;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);
+    padding:34px 18px;text-align:center;
+  }
+  .exp-box .numeral{
+    display:block;font-family:'Cinzel',serif;font-size:2.4rem;font-weight:500;line-height:1;
+    color:var(--gold);margin-bottom:14px;
+  }
+  .exp-box h3{font-size:1.1rem;margin:0 0 .4em;color:var(--cream);text-transform:uppercase;letter-spacing:.08em;}
+  .exp-card-time{
+    font-family:'Cinzel',serif;color:var(--gold-light);font-weight:600;font-size:.92rem;
+    margin:.4em 0 .3em;letter-spacing:.03em;
+  }
+  .exp-card-detail{font-size:1rem;color:var(--parchment-2);margin:0;line-height:1.5;}
+
+  .notice{
+    max-width:640px;margin:0 auto;text-align:center;
+    color:var(--gold-light);padding:8px 10px;font-size:1.25rem;font-style:italic;font-weight:500;
+  }
+
+  /* ---------- feast ---------- */
+  .feast-parchment{
+    position:relative;display:flex;flex-direction:column;text-align:center;
+    max-width:720px;margin:2.6em auto 0;padding:64px 56px;
+    background:
+      radial-gradient(ellipse 70% 50% at 20% 10%, rgba(120,84,42,.10), transparent 70%),
+      linear-gradient(180deg, var(--cream), var(--parchment-2));
+    border-radius:4px;
+    box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 20px 50px rgba(42,28,18,.22);
+    outline:1px solid rgba(201,161,59,.7);outline-offset:-14px;
+  }
+  .feast-parchment::after{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;z-index:0;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n2'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.15  0 0 0 0 0.11  0 0 0 0 0.07  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n2)'/></svg>");
+    background-size:200px 200px;
+  }
+  .feast-photo{
+    max-width:600px;margin:0 auto 2.2em;border-radius:6px;overflow:hidden;
+    box-shadow:0 18px 40px rgba(0,0,0,.5);outline:1px solid rgba(201,161,59,.6);outline-offset:-10px;
+  }
+  .feast-photo img{width:100%;height:auto;display:block;}
+  .feast-item{
+    position:relative;z-index:1;
+    padding:26px 0;border-bottom:1px solid rgba(107,66,38,.25);
+  }
+  .feast-item:first-child{padding-top:0;}
+  .feast-item:last-child{border-bottom:none;padding-bottom:0;}
+  .feast-item h3{
+    font-size:1rem;color:var(--burgundy);margin-bottom:.7em;text-transform:uppercase;letter-spacing:.14em;
+    display:flex;align-items:center;justify-content:center;gap:14px;
+  }
+  .feast-item h3::before,.feast-item h3::after{content:"";width:34px;height:1px;background:var(--gold);}
+  .feast-item ul{list-style:none;margin:0;padding:0;}
+  .feast-item ul li{
+    font-size:.96rem;color:var(--brown);padding:4px 0;
+  }
+  .feast-item .tag{
+    display:inline-block;margin-top:12px;font-size:.72rem;letter-spacing:.08em;
+    text-transform:uppercase;font-family:'Cinzel',serif;color:var(--gold);
+    border:1px solid var(--gold);border-radius:999px;padding:3px 10px;
+  }
+  .feast-alt{
+    display:flex;align-items:center;justify-content:center;gap:10px;margin:16px auto 0;max-width:480px;
+    padding:14px 16px;background:rgba(47,74,60,.08);border-left:3px solid var(--forest);border-radius:8px;
+    font-size:.94rem;color:var(--brown);line-height:1.5;text-align:center;
+  }
+  .feast-alt strong{color:var(--forest-light);}
+  @media (max-width:640px){
+    .feast-parchment{padding:44px 26px;}
+  }
+  .feast-banner{
+    max-width:620px;margin:.6em auto 2em;text-align:center;
+    font-size:1.25rem;font-style:italic;color:var(--gold-light);line-height:1.5;
+  }
+
+  /* ---------- dress code ---------- */
+  .attribution{
+    text-align:center;color:var(--gold);font-family:'Cinzel',serif;font-size:.85rem;
+    letter-spacing:.03em;margin-bottom:1.4em;
+  }
+  .dress-image{
+    max-width:900px;margin:0 auto 2.4em;border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow);border:1px solid rgba(107,66,38,.2);
+  }
+  .dress-image figcaption{
+    background:var(--wood-2);color:var(--parchment-2);text-align:center;
+    font-size:.85rem;padding:10px;letter-spacing:.03em;
+  }
+  .dress-note{text-align:center;color:var(--parchment-2);font-size:.95rem;font-style:italic;margin-top:.5em;}
+
+  /* ---------- legend ---------- */
+  .legend-card{
+    display:grid;grid-template-columns:.85fr 1.15fr;gap:0;max-width:920px;margin:2.4em auto 0;
+    background:var(--cream);border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow);border:1px solid rgba(107,66,38,.2);
+  }
+  .legend-photo{min-height:220px;}
+  .legend-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .legend-text{padding:32px 34px;position:relative;}
+  .legend-icon{
+    width:24px;height:24px;color:var(--gold);opacity:.85;margin-bottom:.6em;
+  }
+  .legend-text p{
+    font-size:1rem;color:var(--brown);line-height:1.7;margin:0;
+    font-family:'EB Garamond',serif;
+  }
+
+  /* ---------- getting there ---------- */
+  .two-col{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;
+  }
+  address{font-style:normal;font-size:1.15rem;color:var(--cream);margin-bottom:1em;line-height:1.5;}
+  .venue-note{color:var(--parchment-2);}
+  .transit{
+    background:var(--cream);border-left:3px solid var(--gold);border-radius:8px;
+    padding:16px 20px;margin:1.4em 0;font-size:.98rem;color:var(--brown);
+  }
+  .parking-note{
+    display:flex;align-items:flex-start;gap:8px;color:var(--gold-light);
+    font-size:.92rem;font-style:italic;margin:0 0 1.8em;
+  }
+  .parking-note svg{width:18px;height:18px;flex-shrink:0;margin-top:2px;}
+  .location-gallery{display:flex;flex-direction:column;gap:18px;}
+  .map-wrap{
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+    border:1px solid rgba(107,66,38,.2);
+  }
+  .map-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+  .map-wrap a{display:block;}
+  .map-wrap a:hover img{transform:scale(1.03);}
+  .map-wrap figcaption{
+    background:var(--wood-2);color:var(--parchment-2);text-align:center;
+    font-size:.8rem;padding:8px;letter-spacing:.03em;
+  }
+  .map-link{color:var(--gold-light);text-decoration:none;font-family:'Cinzel',serif;}
+  .map-link:hover{text-decoration:underline;}
+
+  /* ---------- final ---------- */
+  .closing{
+    text-align:center;color:var(--cream);margin-top:64px;padding-top:8px;
+  }
+  .closing-line{
+    font-family:'Cinzel',serif;font-size:clamp(1.4rem,3vw,2.1rem);max-width:760px;
+    margin:0 auto .7em;color:var(--cream);line-height:1.4;
+  }
+  .programme-end{color:var(--gold-light);font-size:1rem;letter-spacing:.04em;}
+  .afterparty-note{
+    color:var(--parchment-2);font-size:.92rem;font-style:italic;opacity:.8;
+    max-width:520px;margin:1em auto 0;
+  }
+  .closing .divider{color:var(--gold-light);}
+
+  /* ---------- footer ---------- */
+  .site-footer{
+    background:var(--wood-1);color:var(--parchment-2);text-align:center;
+    padding:26px 20px;font-size:.85rem;letter-spacing:.03em;
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .site-footer span{color:var(--gold-light);}
+  .footer-logo{height:24px;width:auto;opacity:.9;}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .exp-grid{grid-template-columns:1fr;max-width:420px;}
+    .legend-card{grid-template-columns:1fr;}
+    .legend-photo{min-height:200px;}
+    .two-col{grid-template-columns:1fr;gap:32px;}
+    .info-card{grid-template-columns:1fr;gap:14px;}
+    .info-item{border-right:none;border-bottom:1px solid rgba(227,194,104,0.25);padding-bottom:16px;}
+    .info-item:last-child{border-bottom:none;padding-bottom:8px;}
+  }
+  @media (max-width:640px){
+    body{font-size:16.5px;}
+    nav.main-nav{
+      position:fixed;top:0;right:0;height:100svh;width:min(78vw,320px);
+      background:rgba(20,13,8,0.98);flex-direction:column;justify-content:center;
+      gap:30px;transform:translateX(100%);transition:transform .4s ease;
+      z-index:999;
+    }
+    nav.main-nav.open{transform:translateX(0);}
+    .nav-toggle{display:flex;}
+    .section{padding:70px 18px;}
+    .hero{padding:110px 18px 50px;}
+    .kicker{margin-bottom:.7em;}
+    .hero-sub{margin-bottom:.2em;font-size:1.05rem;}
+    .ribbon-banner{margin-bottom:1.1em;}
+    .info-card{margin-bottom:2.2em;padding:16px 8px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .scroll-cue svg{animation:none;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- shared inline icon defs -->
+<svg class="visually-hidden" aria-hidden="true" focusable="false">
+<defs>
+<symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v4M12 17h.01"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v14M6 12l6 6 6-6"/></symbol>
+<symbol id="i-skull" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 3c-4.5 0-8 3.2-8 7.5 0 2.6 1.3 4.4 2.8 5.7V19h1.6v-2h1.6v2h2v-2h1.6v2h1.6v-2.8c1.5-1.3 2.8-3.1 2.8-5.7C20 6.2 16.5 3 12 3z"/><circle cx="9" cy="10.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="15" cy="10.5" r="1.4" fill="currentColor" stroke="none"/><path d="M11 13.3h2l-1 1.6z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-candle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1.8c1.1 1.3 2 2.6 2 3.6 0 1.1-.9 1.9-2 1.9s-2-.8-2-1.9c0-1 .9-2.3 2-3.6z" fill="currentColor" stroke="none"/><rect x="9.3" y="7.4" width="5.4" height="10.8" rx="1"/><path d="M9.3 9c-.9.6-1.3 1.5-1 2.3.2.6 1 .5 1.1-.2.1-.7-.2-1.4-.6-1.8z" fill="currentColor" stroke="none" opacity=".9"/><path d="M14.7 10.2c.8.7 1.1 1.6.7 2.3-.3.5-1 .3-1-.4 0-.6.1-1.3.3-1.9z" fill="currentColor" stroke="none" opacity=".9"/><path d="M6 19.2c1.1.6 2.2.9 3.6.9h4.8c1.4 0 2.5-.3 3.6-.9"/></symbol>
+</defs>
+</svg>
+
+<header class="site-header" id="site-header">
+  <a href="#top" class="brand" aria-label="Enehano — back to top">
+    <img src="assets/enehano-logo-white.png" alt="Enehano" class="brand-logo">
+  </a>
+  <nav class="main-nav" id="main-nav" aria-label="Primary">
+    <a href="#experience">Experience</a>
+    <a href="#feast">Feast</a>
+    <a href="#dress-code">Dress Code</a>
+    <a href="#getting-there">Getting There</a>
+  </nav>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-content">
+      <p class="kicker">You Are Invited</p>
+      <h1>Leave the Modern World Behind</h1>
+      <p class="hero-sub">Join us for a night of feasting, live entertainment and medieval atmosphere.</p>
+
+      <div class="ribbon-banner">
+        <p class="event-name">Christmas Party 2026 · Medieval &amp; Middle-earth</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-item">
+          <svg><use href="#i-calendar"/></svg>
+          <span class="info-label">Date</span>
+          <span class="info-value">Thu, 10 December 2026</span>
+        </div>
+        <div class="info-item">
+          <svg><use href="#i-clock"/></svg>
+          <span class="info-label">Time</span>
+          <span class="info-value">18:15 – 23:50</span>
+        </div>
+        <div class="info-item">
+          <svg><use href="#i-pin"/></svg>
+          <span class="info-label">Venue</span>
+          <span class="info-value">U Krále Brabantského, Malá Strana</span>
+        </div>
+      </div>
+
+      <div class="countdown" id="countdown">
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-days">–</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-hours">–</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-mins">–</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-secs">–</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <a class="btn btn-primary" href="https://www.krcmabrabant.cz" target="_blank" rel="noopener">Explore the Venue</a>
+    </div>
+    <a href="#experience" class="scroll-cue" aria-label="Scroll to next section">
+      <svg><use href="#i-down"/></svg>
+    </a>
+  </section>
+
+  <!-- EXPERIENCE + FEAST -->
+  <section class="section" id="experience">
+    <div class="section-inner">
+      <p class="eyebrow reveal">The Experience</p>
+      <h2 class="reveal">An Evening Worthy of Legend</h2>
+      <div class="divider reveal">
+        <span class="line"></span><svg><use href="#i-candle"/></svg><svg class="skull-accent"><use href="#i-skull"/></svg><svg><use href="#i-candle"/></svg><span class="line"></span>
+      </div>
+
+      <div class="exp-grid">
+        <div class="exp-box reveal">
+          <span class="numeral">I</span>
+          <h3>Live Medieval Show</h3>
+          <p class="exp-card-time">19:00 – 22:00</p>
+          <p class="exp-card-detail">Live entertainment during the feast.</p>
+        </div>
+        <div class="exp-box reveal">
+          <span class="numeral">II</span>
+          <h3>Full Medieval Meal</h3>
+          <p class="exp-card-detail">A hearty, full spread — the whole menu below.</p>
+        </div>
+        <div class="exp-box reveal">
+          <span class="numeral">III</span>
+          <h3>Unlimited Drinks</h3>
+          <p class="exp-card-detail">Beer, wine, mead &amp; more, all evening long.</p>
+        </div>
+      </div>
+
+      <p class="notice reveal">Please arrive before 19:00, so we don't disrupt the evening's programme.</p>
+
+      <div class="divider divider-lg divider-plain reveal" id="feast">
+        <span class="line"></span><span class="line"></span>
+      </div>
+
+      <p class="eyebrow reveal">Dining</p>
+      <h2 class="reveal">The Medieval Feast</h2>
+      <p class="feast-banner reveal">Prepared on a great lava grill, eaten by hand as in medieval times. The full banquet is included — and drinks keep flowing all evening long.</p>
+
+      <figure class="feast-photo reveal">
+        <img src="assets/feast-table.jpg" alt="Grilled ribs, roasted knuckle, peppers and a mug of beer on a candlelit wooden table.">
+      </figure>
+
+      <div class="feast-parchment">
+        <div class="feast-item reveal">
+          <h3>Starters</h3>
+          <ul>
+            <li>Czech &amp; Slovak cheeses and meats</li>
+            <li>Homemade pâté</li>
+            <li>Fresh bread</li>
+          </ul>
+        </div>
+        <div class="feast-item reveal">
+          <h3>Main Course</h3>
+          <ul>
+            <li>Smoked &amp; honey-glazed pork ribs</li>
+            <li>Meat &amp; vegetable skewers</li>
+            <li>Chicken wings &amp; roasted chicken</li>
+            <li>Roasted potatoes, corn &amp; peppers</li>
+            <li>Homemade garlic &amp; plum sauces</li>
+            <li>Whole roasted pork knee in home-brewed beer</li>
+          </ul>
+          <span class="tag">Knee on request, 4+ guests</span>
+          <p class="feast-alt"><span><strong>Vegetarian option:</strong> grilled vegetables and melting cheese, straight off the lava grill, finished with homemade garlic &amp; plum sauce.</span></p>
+        </div>
+        <div class="feast-item reveal">
+          <h3>Dessert</h3>
+          <ul>
+            <li>Daily dessert selection</li>
+          </ul>
+        </div>
+        <div class="feast-item reveal">
+          <h3>Drinks</h3>
+          <ul>
+            <li>House beer &amp; Pilsner Urquell</li>
+            <li>Moravian wine</li>
+            <li>Almond mead</li>
+            <li>Simple mixed drinks</li>
+            <li>Soft drinks, coffee &amp; tea</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRESS CODE -->
+  <section class="section" id="dress-code">
+    <div class="section-inner">
+      <p class="eyebrow reveal">What to Wear</p>
+      <h2 class="reveal">Dress Code</h2>
+      <p class="subhead reveal">Classic Medieval or Middle-earth Inspired</p>
+      <p class="lede reveal">Create your own medieval look using simple layers, natural fabrics and themed accessories. The more immersive, the better!</p>
+      <p class="attribution reveal">Chosen by Jarda H., winner of the Tombola Prize.</p>
+
+      <figure class="dress-image reveal">
+        <img src="assets/dress-code-guide-v2.png" alt="Christmas Party Medieval &amp; Middle-earth dress code guide showing colours and materials, build-your-outfit pieces, women's and men's inspiration looks, and accessories.">
+        <figcaption>Outfit inspiration — mix and match simple pieces</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- LEGEND + GETTING THERE -->
+  <section class="section alt" id="legend">
+    <div class="section-inner">
+      <p class="eyebrow reveal" id="getting-there">Location</p>
+      <h2 class="reveal">Getting There</h2>
+
+      <div class="two-col">
+        <div class="reveal">
+          <address>
+            Krčma U Krále Brabantského<br>
+            Thunovská 198/15<br>
+            118 00 Prague 1 – Malá Strana
+          </address>
+          <p class="venue-note">We have reserved the entire lower floor.</p>
+          <div class="transit">
+            <strong>Nearest tram stop:</strong> Malostranské náměstí<br>
+            <strong>Tram lines:</strong> 12, 20 and 22<br>
+            <strong>From the tram stop:</strong> About 5–7 minutes, a short uphill walk
+          </div>
+          <p class="parking-note">
+            <svg><use href="#i-alert"/></svg>
+            Driving isn't recommended — there's no parking near the venue.
+          </p>
+          <a class="btn btn-secondary" href="https://www.krcmabrabant.cz" target="_blank" rel="noopener">Explore the Venue</a>
+        </div>
+        <div class="location-gallery reveal">
+          <figure class="map-wrap">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=50.0889871,14.4015768" target="_blank" rel="noopener" aria-label="Open Krčma U Krále Brabantského in Google Maps">
+              <img src="assets/venue-map.jpeg" alt="Map showing walking directions from Malostranské náměstí tram stop to Krčma U Krále Brabantského near Charles Bridge in Prague's Malá Strana district.">
+            </a>
+            <figcaption><a href="https://www.google.com/maps/search/?api=1&amp;query=50.0889871,14.4015768" target="_blank" rel="noopener" class="map-link">Open in Google Maps →</a></figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="closing">
+        <div class="divider reveal">
+          <span class="line"></span><svg><use href="#i-candle"/></svg><svg class="skull-accent"><use href="#i-skull"/></svg><svg><use href="#i-candle"/></svg><span class="line"></span>
+        </div>
+        <p class="closing-line reveal">Sharpen your swords, fasten your cloaks and prepare for an unforgettable night.</p>
+        <p class="programme-end reveal">Official programme ends at 23:50.</p>
+        <p class="afterparty-note reveal">Not ready for the night to end? Feel free to keep the celebration going afterward, on your own terms.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <img src="assets/enehano-logo-white.png" alt="Enehano" class="footer-logo">
+  <p>Christmas Party 2026 · <span>Medieval &amp; Middle-earth</span></p>
+</footer>
+
+<script>
+(function(){
+  var header = document.getElementById('site-header');
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+
+  function onScroll(){
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    });
+  });
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+})();
+
+(function(){
+  var target = new Date('2026-12-10T18:15:00+01:00').getTime();
+  var countdownEl = document.getElementById('countdown');
+  var daysEl = document.getElementById('cd-days');
+  var hoursEl = document.getElementById('cd-hours');
+  var minsEl = document.getElementById('cd-mins');
+  var secsEl = document.getElementById('cd-secs');
+  var timer;
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+  function tick(){
+    var diff = target - Date.now();
+    if (diff <= 0){
+      countdownEl.innerHTML = '<p class="countdown-live">The feast has begun!</p>';
+      clearInterval(timer);
+      return;
+    }
+    daysEl.textContent = Math.floor(diff / 86400000);
+    hoursEl.textContent = pad(Math.floor((diff % 86400000) / 3600000));
+    minsEl.textContent = pad(Math.floor((diff % 3600000) / 60000));
+    secsEl.textContent = pad(Math.floor((diff % 60000) / 1000));
+  }
+
+  tick();
+  timer = setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>

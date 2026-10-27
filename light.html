@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christmas Party 2026 — Medieval &amp; Middle-earth (light preview)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f1e4c8; --paper-2:#e8d6b0; --paper-3:#dcc496;
+  --ink:#2a1a10; --brown:#5b3a22; --burgundy:#7a1424; --burgundy-d:#5a0d19;
+  --forest:#1f3a2c; --gold:#b98a2b; --gold-l:#e3c268;
+  --maxw:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:'EB Garamond',Georgia,serif;font-size:18px;line-height:1.6;color:var(--ink);
+  background:
+    radial-gradient(ellipse 60% 30% at 15% 20%,rgba(150,100,40,.18),transparent 70%),
+    radial-gradient(ellipse 60% 30% at 85% 55%,rgba(150,100,40,.16),transparent 70%),
+    radial-gradient(ellipse 60% 30% at 20% 90%,rgba(150,100,40,.18),transparent 70%),
+    var(--paper);
+}
+h1,h2,h3{font-family:'Cinzel',serif;margin:0;line-height:1.15}
+p{margin:0 0 1em}
+img{display:block;max-width:100%}
+
+/* page frame like a printed sheet */
+.sheet{max-width:1200px;margin:0 auto;position:relative}
+.sheet::before{content:"";position:absolute;inset:14px;border:1px solid rgba(122,20,36,.35);outline:1px solid rgba(185,138,43,.55);outline-offset:5px;pointer-events:none;z-index:5}
+
+/* hero */
+.hero{position:relative;text-align:center;padding:70px 24px 40px;overflow:hidden}
+.hero .corner{position:absolute;top:0;height:400px;width:min(26%,260px);object-fit:cover;pointer-events:none}
+.hero .l{left:0;-webkit-mask-image:linear-gradient(90deg,#000 55%,transparent 100%),linear-gradient(180deg,#000 60%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,#000 55%,transparent 100%),linear-gradient(180deg,#000 60%,transparent 100%);mask-composite:intersect}
+.hero .r{right:0;-webkit-mask-image:linear-gradient(270deg,#000 55%,transparent 100%),linear-gradient(180deg,#000 60%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(270deg,#000 55%,transparent 100%),linear-gradient(180deg,#000 60%,transparent 100%);mask-composite:intersect}
+.hero-in{position:relative;z-index:2;max-width:620px;margin:0 auto}
+.kick{font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--brown)}
+.xmas{font-family:'Cinzel',serif;font-size:1.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--burgundy);font-weight:600;margin:.2em 0 .1em}
+.title{font-size:clamp(2.6rem,7vw,5rem);font-weight:900;letter-spacing:.01em;text-shadow:0 2px 0 rgba(255,255,255,.4)}
+.tagline{display:inline-block;margin-top:18px;background:linear-gradient(180deg,var(--burgundy),var(--burgundy-d));color:var(--gold-l);font-family:'Cinzel',serif;text-transform:uppercase;letter-spacing:.1em;font-size:.82rem;padding:11px 28px;border:1px solid var(--gold);box-shadow:0 0 0 3px var(--burgundy-d),0 6px 14px rgba(0,0,0,.3);clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,14px 100%,0 50%)}
+.orn{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold);margin:30px auto 0;max-width:340px}
+.orn i{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.orn b{font-size:1.2rem;font-weight:400}
+
+/* countdown */
+.cd{display:flex;justify-content:center;gap:0;margin:26px auto 0;max-width:430px;border:1px solid var(--gold);background:rgba(255,248,230,.55);border-radius:4px}
+.cd div{flex:1;padding:10px 4px;border-right:1px solid rgba(185,138,43,.45);text-align:center}
+.cd div:last-child{border:0}
+.cd b{display:block;font-family:'Cinzel',serif;font-size:1.7rem;color:var(--burgundy);line-height:1;font-variant-numeric:tabular-nums}
+.cd span{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brown)}
+
+/* info strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);max-width:var(--maxw);margin:40px auto 0;padding:0 28px}
+.strip>div{text-align:center;padding:6px 16px;border-right:1px solid rgba(91,58,34,.3)}
+.strip>div:last-child{border:0}
+.strip .lab{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brown)}
+.strip .big{font-family:'Cinzel',serif;font-weight:700;color:var(--burgundy);font-size:1.35rem;line-height:1.2;margin:.25em 0}
+.strip small{display:block;font-size:.95rem;color:var(--brown);line-height:1.35}
+.strip svg{width:34px;height:34px;color:var(--ink);margin-bottom:6px}
+
+/* sections */
+.sec{max-width:var(--maxw);margin:0 auto;padding:64px 28px 0}
+.sec h2{text-align:center;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700}
+.sec .sub{text-align:center;font-family:'Cinzel',serif;color:var(--burgundy);text-transform:uppercase;letter-spacing:.06em;font-size:1.1rem;font-weight:600;margin:.4em 0 .6em}
+.sec .lede{text-align:center;max-width:620px;margin:0 auto 1em;color:var(--brown);font-size:1.15rem}
+.rule{height:1px;background:linear-gradient(90deg,transparent,rgba(91,58,34,.5),transparent);margin:50px auto 0;max-width:var(--maxw)}
+
+/* experience */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:30px;border-top:1px solid rgba(91,58,34,.4);border-bottom:1px solid rgba(91,58,34,.4)}
+.trio>div{text-align:center;padding:26px 18px;border-right:1px solid rgba(91,58,34,.3)}
+.trio>div:last-child{border:0}
+.trio .n{font-family:'Cinzel',serif;font-size:2rem;color:var(--gold)}
+.trio h3{font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;margin:.2em 0}
+.trio p{margin:0;color:var(--brown);font-size:1rem}
+.notice{text-align:center;margin:26px 0 0;font-style:italic;font-size:1.25rem;color:var(--burgundy)}
+
+/* feast */
+.feast{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin-top:34px}
+.photo{position:relative;padding:10px;background:var(--paper-2);box-shadow:0 14px 30px rgba(60,35,10,.35);border:1px solid var(--gold)}
+.photo img{width:100%}
+.menu{text-align:center}
+.menu h3{font-size:.95rem;letter-spacing:.16em;text-transform:uppercase;color:var(--burgundy);margin:1.1em 0 .3em;display:flex;align-items:center;justify-content:center;gap:12px}
+.menu h3:first-child{margin-top:0}
+.menu h3::before,.menu h3::after{content:"";width:28px;height:1px;background:var(--gold)}
+.menu p{margin:0;color:var(--brown);font-size:1rem;line-height:1.45}
+.menu em{display:block;margin-top:.5em;color:var(--forest);font-size:.95rem}
+
+/* dress */
+.dress{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}
+.dress figure{margin:0;text-align:center}
+.dress img{width:100%;border:1px solid rgba(91,58,34,.3);box-shadow:0 10px 24px rgba(60,35,10,.28)}
+.acc{margin-top:26px;width:100%;border:1px solid rgba(91,58,34,.3);box-shadow:0 10px 24px rgba(60,35,10,.22)}
+
+/* location */
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:30px}
+.loc address{font-style:normal;font-size:1.2rem;margin-bottom:.8em}
+.loc .box{border-left:3px solid var(--gold);background:rgba(255,248,230,.55);padding:14px 18px;margin:1em 0;color:var(--brown);font-size:1rem}
+.loc img{border:1px solid var(--gold);padding:8px;background:var(--paper-2);box-shadow:0 12px 26px rgba(60,35,10,.3)}
+.btn{display:inline-block;margin-top:6px;font-family:'Cinzel',serif;text-transform:uppercase;letter-spacing:.1em;font-size:.85rem;text-decoration:none;color:var(--burgundy);border:1px solid var(--burgundy);padding:12px 26px}
+.btn:hover{background:var(--burgundy);color:var(--gold-l)}
+
+/* closing */
+.close{margin-top:70px;background:linear-gradient(180deg,#25402f,var(--forest));color:var(--gold-l);text-align:center;padding:34px 20px;border-top:3px double var(--gold);border-bottom:3px double var(--gold)}
+.close p{margin:0}
+.close .big{font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.6vw,1.8rem);letter-spacing:.06em;text-transform:uppercase;color:#f3e3b4}
+.close .small{margin-top:.5em;color:#d9c796;font-size:1rem}
+footer{padding:22px;text-align:center;font-size:.85rem;color:var(--brown)}
+
+@media (max-width:820px){
+  .strip{grid-template-columns:1fr 1fr;row-gap:20px}
+  .strip>div:nth-child(2){border-right:0}
+  .trio,.feast,.dress,.loc{grid-template-columns:1fr}
+  .trio>div{border-right:0;border-bottom:1px solid rgba(91,58,34,.3)}
+  .hero .corner{opacity:.55}
+  body{font-size:16.5px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="hero">
+  <img class="corner l" src="assets/poster-tavern2.png" alt="">
+  <img class="corner r" src="assets/poster-castle2.png" alt="">
+  <div class="hero-in">
+    <div class="kick">You are invited to our</div>
+    <div class="xmas">Christmas Party</div>
+    <h1 class="title">Medieval &amp;<br>Middle-earth</h1>
+    <div class="tagline">Leave the modern world behind</div>
+    <div class="cd" id="cd">
+      <div><b id="d">–</b><span>Days</span></div>
+      <div><b id="h">–</b><span>Hours</span></div>
+      <div><b id="m">–</b><span>Minutes</span></div>
+      <div><b id="s">–</b><span>Seconds</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="orn"><i></i><b>❦</b><i></i></div>
+
+<div class="strip">
+  <div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+    <div class="lab">Date</div><div class="big">10. 12. 2026</div><small>Thursday, 18:15 – 23:50</small>
+  </div>
+  <div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg>
+    <div class="lab">Location</div><div class="big">Krčma U Krále<br>Brabantského</div><small>Thunovská 198/15, Prague 1<br><i>Entire lower floor reserved for us</i></small>
+  </div>
+  <div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4h10l-1 6a4 4 0 0 1-8 0z"/><path d="M12 14v5M8 21h8"/></svg>
+    <div class="lab">Live Medieval Show</div><div class="big">19:00 – 22:00</div><small>Feast &amp; unlimited drinks included</small>
+  </div>
+  <div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+    <div class="lab">Please arrive</div><div class="big">Before 19:00</div><small>so we don't disrupt the programme</small>
+  </div>
+</div>
+
+<div class="rule"></div>
+
+<section class="sec" id="feast">
+  <h2>The Medieval Feast</h2>
+  <p class="lede">Prepared on a great lava grill, eaten by hand as in medieval times. The full banquet is included — and drinks keep flowing all evening long.</p>
+  <div class="feast">
+    <figure class="photo" style="margin:0"><img src="assets/feast-table.jpg" alt="Grilled ribs, roasted knuckle and a mug of beer on a candlelit table"></figure>
+    <div class="menu">
+      <h3>Starters</h3><p>Czech &amp; Slovak cheeses and meats, homemade pâté, fresh bread</p>
+      <h3>Main Course</h3><p>Smoked &amp; honey-glazed pork ribs, meat &amp; vegetable skewers, chicken wings &amp; roasted chicken, roasted potatoes, corn &amp; peppers, garlic &amp; plum sauces<br>Whole roasted pork knee in home-brewed beer</p><em>Vegetarian option: grilled vegetables and melting cheese off the lava grill</em>
+      <h3>Dessert</h3><p>Daily dessert selection</p>
+      <h3>Drinks</h3><p>House beer &amp; Pilsner Urquell, Moravian wine, almond mead, simple mixed drinks, soft drinks, coffee &amp; tea</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section class="sec" id="dress-code">
+  <h2>Dress Code</h2>
+  <div class="sub">Medieval or Middle-earth inspired</div>
+  <p class="lede">Create your own medieval look using simple layers, natural fabrics and themed accessories. The more immersive, the better!</p>
+  <img class="acc" src="assets/dress-code-guide-v2.png" alt="Dress code guide: colours and materials, build your outfit, women's and men's inspiration, accessories">
+</section>
+
+<div class="rule"></div>
+
+<section class="sec" id="getting-there">
+  <h2>Getting There</h2>
+  <div class="loc">
+    <div>
+      <address>Krčma U Krále Brabantského<br>Thunovská 198/15<br>118 00 Prague 1 – Malá Strana</address>
+      <div class="box"><b>Tram stop:</b> Malostranské náměstí (lines 12, 20, 22)<br>From the stop: about 5–7 minutes, a short uphill walk<br><i>Driving isn't recommended — no parking nearby.</i></div>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=50.0889871,14.4015768" target="_blank" rel="noopener">Open in Google Maps</a>
+    </div>
+    <a href="https://www.google.com/maps/search/?api=1&query=50.0889871,14.4015768" target="_blank" rel="noopener"><img src="assets/venue-map.jpeg" alt="Map from the tram stop to the tavern"></a>
+  </div>
+</section>
+
+<div class="close">
+  <p class="big">Sharpen your swords, fasten your cloaks and prepare for an unforgettable night</p>
+  <p class="small">Official programme ends at 23:50 · Not ready for the night to end? Keep the celebration going on your own terms.</p>
+</div>
+<footer>Christmas Party 2026 · Enehano</footer>
+</div>
+<script>
+(function(){
+  var t=new Date('2026-12-10T18:15:00+01:00').getTime();
+  var e={d:d,h:h,m:m,s:s};
+  function p(n){return n<10?'0'+n:''+n}
+  function tick(){var x=t-Date.now();if(x<0)x=0;
+    d.textContent=Math.floor(x/864e5);h.textContent=p(Math.floor(x%864e5/36e5));
+    m.textContent=p(Math.floor(x%36e5/6e4));s.textContent=p(Math.floor(x%6e4/1e3));}
+  tick();setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
